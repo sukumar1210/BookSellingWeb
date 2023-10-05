@@ -1,21 +1,41 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { URL } from '../config.js';
 
 function Home() {
+    const [loggedin, setLogin] = useState(localStorage.getItem("user"))
     const navigate = useNavigate()
-    let a=0
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
-        if (!loggedInUser) return navigate("/login");
-        else {
-            console.log(a++)
-            console.log("user", loggedInUser)
+        if (!loggedInUser || loggedInUser == "null") {
+            navigate("/login");
         }
-        // navigate("/login")
-    }, []);
+        else {
+            console.log("Logged in user: ", loggedInUser)
+            // axios.post(`${URL}/`, {loggedInUser})
+            // .then((res) => {
+            //     console.log("in Then")
+            //     console.log(res)
+            //     return res
+            // }).catch((err) => {
+            //     console.log("in catch")
+            //     console.log(err)
+            //     return err
+            // })
+            navigate("/")
+        }
+    }, [localStorage.user, loggedin]);
+    
     return (
-        <h1>Home</h1>
+        <>
+            <h1>Home</h1>
+            {/* <p>{result}</p> */}
+            <button onClick={()=>{
+                localStorage.user=null;
+                setLogin(null);
+            }}>Logout</button>
+        </>
     )
 }
 

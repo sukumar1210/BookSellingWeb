@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import {URL} from "../config.js"
+import axios from 'axios'
 
 function Signup() {
     const [email, setEmail] = useState('')
@@ -13,9 +15,16 @@ function Signup() {
         <form
             onSubmit={(e) => {
                 console.log({ email, name, password })
-                console.log(e.preventDefault())
+                e.preventDefault()
+                axios.post(`${URL}/signup`, { email, name, password })
+                .then((res) => {
+                    console.log(res)
+                    navigate("/")
+                })
+                .catch((err) => {
+                    console.log(err)
+                }) 
                 // localStorage.setItem('user', JSON.stringify({ email }))
-                navigate("/")
             }}>
             <label>Email</label>
             <input
