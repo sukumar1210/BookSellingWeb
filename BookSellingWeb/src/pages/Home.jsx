@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { URL } from '../config.js';
+import Navbar from './components/navbar.jsx';
+
 
 function Home() {
     const [loggedin, setLogin] = useState(localStorage.getItem("user"))
@@ -30,11 +32,8 @@ function Home() {
     return (
         <>
             <h1>Home</h1>
+            <Navbar />
             {/* <p>{result}</p> */}
-            <button onClick={()=>{
-                localStorage.user=null;
-                setLogin(null);
-            }}>Logout</button>
         </>
     )
 }
