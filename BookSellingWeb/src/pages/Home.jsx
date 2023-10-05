@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { URL } from '../config.js';
 import Navbar from './components/navbar.jsx';
+import FetchBooks from './FetchBooks.jsx';
 
 
 function Home() {
@@ -33,6 +33,21 @@ function Home() {
         <>
             <h1>Home</h1>
             <Navbar />
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. no.</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <FetchBooks user={JSON.parse(localStorage.getItem("user"))}/>
+                </tbody>
+            </table>
             {/* <p>{result}</p> */}
         </>
     )

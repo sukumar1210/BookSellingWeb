@@ -3,7 +3,6 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Signup from './Signup'
 import axios from 'axios'
-import {URL} from "../config.js"
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -15,10 +14,11 @@ function Login() {
         <form
             onSubmit={(e) => {
                 // console.log({ email, password })
-                console.log(e.preventDefault())
-                axios.post(`${URL}/login`, {email, password}).then((res)=>{
+                console.log( e.preventDefault())
+                axios.post(`/login`, {email, password}).then((res)=>{
                     if (res.data.valid){
                         localStorage.setItem('user', JSON.stringify({ _id: res.data._id, email}))
+                        // localStorage.user={ _id: res.data._id, email}
                         navigate("/")
                     }
                     else{
@@ -33,7 +33,7 @@ function Login() {
             <input
                 type='email'
                 placeholder='Enter email'
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value.toLowerCase())}
             ></input>
             <br />
             <label>Password</label>

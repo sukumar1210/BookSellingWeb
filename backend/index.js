@@ -28,8 +28,30 @@ app.use(cors());
 app.use(express.json()); 
 
 app.get('/', (req,res)=>{
+    console.log(req.body);
     console.log('request received get here');
-    return res.status(269).send("Hello World");
+    const data = {
+        name: 'John',
+        age: 23
+    }
+    return res.status(269).send(data);
+})
+
+app.get("/browse", async (req, res) => {
+    const query = req.query;
+    const DBQuery = {};
+    if (query.Title) DBQuery.Title = query.Title;
+    if (query.Author) DBQuery.Author = query.Author;
+    if (query.Genre) DBQuery.Genre = query.Genre;
+    if (query.Price) DBQuery.Price = query.Price;
+    if (query.User) DBQuery.User = query.User;
+    console.log("query: ", DBQuery);
+    await Book.find(DBQuery).then((books) => {
+        return res.status(200).send(books);
+    }).catch((err) => {
+        console.log(err);
+        return res.status(500).send("Internal Server Error");
+    })
 })
 
 // Dummy Route for learning Purposes

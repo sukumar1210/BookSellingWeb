@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import {URL} from "../config.js"
 import axios from 'axios'
 
 function Signup() {
@@ -16,7 +15,7 @@ function Signup() {
             onSubmit={(e) => {
                 console.log({ email, name, password })
                 e.preventDefault()
-                axios.post(`${URL}/signup`, { email, name, password })
+                axios.post(`/signup`, { email, name, password })
                 .then((res) => {
                     console.log(res)
                     navigate("/")
@@ -30,7 +29,7 @@ function Signup() {
             <input
                 type='email'
                 placeholder='Enter email'
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value.toLowerCase())}
             ></input>
             <br />
             <label>Name</label>

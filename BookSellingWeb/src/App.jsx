@@ -5,6 +5,10 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Listings from './pages/Listings'
+import axios from 'axios'
+import { baseURL } from './config'
+
+axios.defaults.baseURL = baseURL;
 
 function App() {
 
