@@ -1,3 +1,40 @@
+html{
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-family: Inter;
+}
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+body{
+  min-height: 100%;
+  position: relative;
+  margin: 0%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle; */
+}
+main{
+  padding: 1rem;
+}
+.Genre{
+  background: #d9df90;
+  padding: 5px;
+  border-radius: px;
+}
+td{
+  padding: 5px;
+}
+td>:nth-child(n){
+  margin: 3px;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

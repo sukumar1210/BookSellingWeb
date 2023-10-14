@@ -1,0 +1,78 @@
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #5BB0CB;
+}
+.container{
+    background-color: white;
+    /* padding: 2rem;
+    border-radius: 30px; */
+    display: flex;
+    /* height: 46.00094rem; */
+    width: 28rem;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4.5rem 3rem;
+    /* gap: 4.375rem; */
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+}
+.container>h3{
+    color: #000;
+    padding: 0px;
+    margin: 1rem;
+    font-family: Inter;
+    font-size: 3.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.container>form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5rem;
+}
+.container>form>label{
+    width: 100%;
+}
+.container>form>label>input{
+    display: flex;
+    padding: 0.75rem;
+    align-items: center;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    font-size: 1rem;
+    min-width: fit-content;
+    width: 100%;
+}
+.container>form>button{
+    display: flex;
+    padding: 1rem 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.875rem;
+    background: #5BB0CB;
+    color: white;
+    border-style: none;
+    border: 1px solid #5BB0CB;
+    font-size: 1.2rem;
+}
+.container>form>button:hover{
+    color: #202020;
+    background: white;
+    cursor: pointer;
+}
+.routerLink{
+    display: inline;
+    text-decoration: underline;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bolder;
+}

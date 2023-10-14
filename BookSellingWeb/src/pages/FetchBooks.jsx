@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { PORT } from '../../../backend/config';
 
-function FetchBooks({user=""}) {
+function FetchBooks(props) {
     let count=0;
     const [books, setBooks] = useState([])
     const query = {
-        Price: undefined
+        Title: props.Title,
+        Author: props.Author,
+        Price: props.Price,
+        Genre: props.Genre,
     }
     console.log("query: ", query);
     useEffect(()=>{
@@ -16,7 +18,7 @@ function FetchBooks({user=""}) {
         }).catch((err) => {
             console.log(err);
         })
-    }, [])
+    }, [props.Title])
     return (
     books.map((book, index) => {
         return (
@@ -24,11 +26,13 @@ function FetchBooks({user=""}) {
                 <td>{index + 1}</td>
                 <td>{book.Title}</td>
                 <td>{book.Author}</td>
-                <td>{book.Genre}</td>
+                <td>{book.Genre.map((val, index)=>{
+                    return (<span className='Genre' key={index}>{val}</span>)
+                })}</td>
                 <td>{book.Price}</td>
                 <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button>Buy</button>
+                    <button>Add To Cart</button>
                 </td>
             </tr>
         )

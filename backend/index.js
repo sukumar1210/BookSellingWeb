@@ -40,7 +40,10 @@ app.get('/', (req,res)=>{
 app.get("/browse", async (req, res) => {
     const query = req.query;
     const DBQuery = {};
-    if (query.Title) DBQuery.Title = query.Title;
+    if (query.Title) DBQuery.Title = {
+        $regex: query.Title,
+        $options: "i"
+    }
     if (query.Author) DBQuery.Author = query.Author;
     if (query.Genre) DBQuery.Genre = query.Genre;
     if (query.Price) DBQuery.Price = query.Price;
