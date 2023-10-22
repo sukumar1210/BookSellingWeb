@@ -35,29 +35,33 @@ function Home() {
     
     return (
         <>
-            <Navbar page="Home" />
-            <main>
+            <Navbar/>
+            <main className={style.main}>
 
-                <form
-                    className={style.search}
-                    onSubmit={async (e) => {
-                        e.preventDefault()
-                        console.log("search: ", search);
-                        setSearch(e.target[0].value)
-                        console.log("here: ", search)
-                        
-                    }}
-                >
-                    <label>
-                        <input
-                            id="title"
-                            type="text"
-                            placeholder='Search Book'
-                        />
-                    </label>
-                    <button type='submit'>Search</button>
-                </form>
-                <table className={style.displayData}>
+                <div className={style.sidebar}>
+                    <form
+                        className={style.search}
+                        onSubmit={async (e) => {
+                            e.preventDefault()
+                            console.log("search: ", search);
+                            setSearch(e.target[0].value)
+                            console.log("here: ", search)
+                            
+                    }}>
+                        <label>
+                            <input
+                                id="title"
+                                type="text"
+                                placeholder='Search Book'
+                            />
+                        </label>
+                        <button type='submit'>Search</button>
+                    </form>
+                    <div className={style.filter}>
+                        Filters
+                    </div>
+                </div>
+                <table className={style.displayData} rules='all'>
                     <thead>
                         <tr>
                             <th>Sr. no.</th>

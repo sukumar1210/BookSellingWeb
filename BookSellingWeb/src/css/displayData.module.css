@@ -1,7 +1,33 @@
+/* *{border: 1px solid black;} */
+
+.main{
+    display: flex;
+    height: 100%;
+    
+}
+
+
+.sidebar{
+    width: 20%;
+    height: 100%;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.sidebar .filter{
+    
+}
+
+
 .search{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
     /* font-size: 2rem; */
@@ -20,7 +46,8 @@
     font-size: 1rem;
     padding: 0.4rem;
 }
-/* *{border: 1px solid black;} */
 .displayData{
-
+    margin: 2rem;
+    height: fit-content;
+    width: 100%;
 }

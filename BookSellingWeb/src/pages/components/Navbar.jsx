@@ -6,7 +6,8 @@ function Navbar(props) {
     const Navigate = useNavigate()
   return (
     <div className={style.header}>
-      <h1>{props.page}</h1>
+      {/* <p>BookSellingWeb</p> */}
+      BookSellingWeb
       <nav className={style.nav}>
           <Link className={style.routerLink} to="/">Home</Link>
           <Link className={style.routerLink} to="/Listings">My Listings</Link>
